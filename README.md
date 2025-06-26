@@ -1,6 +1,6 @@
 # Errand App
 
-A service marketplace application similar to Thumbtack with an Apple-inspired UI design.
+
 
 ## Features
 
