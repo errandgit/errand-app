@@ -1,19 +1,19 @@
 :root {
-  /* AWS Q-inspired Core colors */
-  --primary-color: #232F3E; /* AWS dark blue */
-  --primary-light: #4D6E95;
-  --primary-dark: #131921;
-  --secondary-color: #FF9900; /* AWS orange */
-  --secondary-light: #FFAC31;
-  --secondary-dark: #E88A00;
+  /* Apple-inspired Core colors */
+  --primary-color: #000000; /* Apple black */
+  --primary-light: #333333;
+  --primary-dark: #000000;
+  --secondary-color: #0071e3; /* Apple blue */
+  --secondary-light: #0086ff;
+  --secondary-dark: #0062c0;
   
   /* Neutral colors */
-  --light-gray: #F2F3F3;
-  --medium-gray: #879596;
-  --dark-gray: #545B64;
-  --off-white: #FAFAFA;
+  --light-gray: #f5f5f7;
+  --medium-gray: #86868b;
+  --dark-gray: #424245;
+  --off-white: #fbfbfd;
   --white: #FFFFFF;
-  --black: #16191F;
+  --black: #1d1d1f;
   
   /* Status colors */
   --success-color: #2CAA54;
@@ -33,10 +33,10 @@
   --accent-blue: #0073BB;
   
   /* Typography */
-  --font-family: 'Amazon Ember', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif;
   --font-weight-light: 300;
   --font-weight-regular: 400;
-  --font-weight-medium: 500;
+  --font-weight-medium: 600;
   --font-weight-bold: 700;
   
   /* Shadows */
@@ -46,10 +46,10 @@
   --shadow-focus: 0 0 0 2px rgba(255, 153, 0, 0.25);
   
   /* Border radius */
-  --radius-xs: 2px;
-  --radius-sm: 4px;
-  --radius-md: 8px;
-  --radius-lg: 12px;
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
   --radius-pill: 9999px;
   
   /* Spacing */
@@ -127,40 +127,40 @@ p {
   letter-spacing: -0.022em;
 }
 
-/* Button Styles - AWS Q Inspired */
+/* Button Styles - Apple Inspired */
 .button {
   background: var(--secondary-color);
-  color: var(--black);
+  color: var(--white);
   border: none;
-  border-radius: var(--radius-sm);
-  padding: 10px 24px;
-  font-size: 16px;
-  font-weight: var(--font-weight-medium);
+  border-radius: var(--radius-pill);
+  padding: 12px 24px;
+  font-size: 17px;
+  font-weight: var(--font-weight-regular);
   cursor: pointer;
   transition: all var(--transition-normal) var(--transition-timing);
   position: relative;
   overflow: hidden;
   z-index: 1;
-  box-shadow: var(--shadow-sm);
-  letter-spacing: 0.2px;
+  letter-spacing: -0.01em;
   text-align: center;
-  line-height: 1.5;
+  line-height: 1.381;
+  box-shadow: none;
 }
 
 .button:focus {
   outline: none;
-  box-shadow: var(--shadow-focus);
+  opacity: 0.9;
 }
 
 .button:hover {
   background-color: var(--secondary-light);
-  box-shadow: var(--shadow-md);
+  opacity: 0.9;
 }
 
 .button:active {
   transform: scale(0.98);
   background-color: var(--secondary-dark);
-  box-shadow: var(--shadow-sm);
+  opacity: 1;
 }
 
 .button-primary {

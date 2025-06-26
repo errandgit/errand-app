@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link as RouterLink } from 'react-router-dom';
 import HomeLogo from '../components/HomeLogo';
 import { useLocation } from '../context/LocationContext';
 
@@ -19,7 +19,7 @@ import ContentLayout from '@cloudscape-design/components/content-layout';
 import BreadcrumbGroup from '@cloudscape-design/components/breadcrumb-group';
 import KeyValuePairs from '@cloudscape-design/components/key-value-pairs';
 import ProgressBar from '@cloudscape-design/components/progress-bar';
-import Link as CloudscapeLink from '@cloudscape-design/components/link';
+import Link from '@cloudscape-design/components/link';
 import TextContent from '@cloudscape-design/components/text-content';
 
 const Home = () => {
@@ -63,7 +63,8 @@ const Home = () => {
       count: '2,341 services',
       description: 'Home improvement, repairs, and gardening',
       status: 'Available',
-      growth: '+15%'
+      growth: '+15%',
+      imageUrl: 'https://via.placeholder.com/300x200/4CAF50/FFFFFF?text=Home+%26+Garden'
     },
     { 
       name: 'Cleaning Services', 
@@ -71,7 +72,8 @@ const Home = () => {
       count: '1,876 services',
       description: 'Professional cleaning and maintenance',
       status: 'Available',
-      growth: '+8%'
+      growth: '+8%',
+      imageUrl: 'https://via.placeholder.com/300x200/2196F3/FFFFFF?text=Cleaning+Services'
     },
     { 
       name: 'Moving & Delivery', 
@@ -79,7 +81,8 @@ const Home = () => {
       count: '945 services',
       description: 'Moving assistance and delivery services',
       status: 'Available',
-      growth: '+22%'
+      growth: '+22%',
+      imageUrl: 'https://via.placeholder.com/300x200/FF9800/FFFFFF?text=Moving+%26+Delivery'
     },
     { 
       name: 'Personal Services', 
@@ -87,7 +90,8 @@ const Home = () => {
       count: '1,234 services',
       description: 'Personal assistance and errands',
       status: 'Available',
-      growth: '+5%'
+      growth: '+5%',
+      imageUrl: 'https://via.placeholder.com/300x200/E91E63/FFFFFF?text=Personal+Services'
     },
   ];
 
@@ -102,7 +106,8 @@ const Home = () => {
       completedJobs: 234,
       verified: true,
       topRated: true,
-      availability: 'Available today'
+      availability: 'Available today',
+      imageUrl: 'https://via.placeholder.com/300x200/9C27B0/FFFFFF?text=Professional+Cleaning'
     },
     {
       id: 109,
@@ -114,7 +119,8 @@ const Home = () => {
       completedJobs: 156,
       verified: true,
       topRated: false,
-      availability: 'Available now'
+      availability: 'Available now',
+      imageUrl: 'https://via.placeholder.com/300x200/3F51B5/FFFFFF?text=Home+Repairs'
     },
     {
       id: 104,
@@ -126,8 +132,35 @@ const Home = () => {
       completedJobs: 98,
       verified: true,
       topRated: true,
-      availability: 'Available tomorrow'
+      availability: 'Available tomorrow',
+      imageUrl: 'https://via.placeholder.com/300x200/00BCD4/FFFFFF?text=Moving+Services'
     },
+    {
+      id: 105,
+      name: 'Lisa Park',
+      service: 'Hair Braiding',
+      rating: 5.0,
+      reviews: 152,
+      responseTime: '< 1 hour',
+      completedJobs: 207,
+      verified: true,
+      topRated: true,
+      availability: 'Available today',
+      imageUrl: 'https://via.placeholder.com/300x200/FF4081/FFFFFF?text=Hair+Braiding'
+    },
+    {
+      id: 107,
+      name: 'Anthony Morris',
+      service: 'African Cuisine',
+      rating: 4.9,
+      reviews: 89,
+      responseTime: '< 3 hours',
+      completedJobs: 124,
+      verified: true,
+      topRated: true,
+      availability: 'Available tomorrow',
+      imageUrl: 'https://via.placeholder.com/300x200/FFC107/FFFFFF?text=African+Cuisine'
+    }
   ];
 
   const [searchQuery, setSearchQuery] = React.useState('');
@@ -144,7 +177,7 @@ const Home = () => {
           />
           <Header
             variant="h1"
-            info={<CloudscapeLink variant="info">Info</CloudscapeLink>}
+            info={<Link variant="info">Info</Link>}
             description="Monitor your service marketplace activity and manage your tasks"
             actions={
               <SpaceBetween direction="horizontal" size="xs">
@@ -253,10 +286,17 @@ const Home = () => {
             items={serviceCategories}
             cardDefinition={{
               header: item => (
-                <SpaceBetween direction="horizontal" size="s" alignItems="center">
-                  <Icon name={item.icon} size="medium" />
-                  <Box variant="h3">{item.name}</Box>
-                </SpaceBetween>
+                <div>
+                  <img 
+                    src={item.imageUrl} 
+                    alt={item.name}
+                    style={{ width: '100%', height: '160px', objectFit: 'cover', borderRadius: '8px 8px 0 0' }}
+                  />
+                  <SpaceBetween direction="horizontal" size="s" alignItems="center" padding="s">
+                    <Icon name={item.icon} size="medium" />
+                    <Box variant="h3">{item.name}</Box>
+                  </SpaceBetween>
+                </div>
               ),
               sections: [
                 {
@@ -325,31 +365,47 @@ const Home = () => {
             items={featuredProviders}
             cardDefinition={{
               header: item => (
-                <SpaceBetween direction="horizontal" size="s" alignItems="center">
-                  <Box
-                    padding="s"
-                    backgroundColor="background-container-header"
-                    borderRadius="circle"
-                    width="40px"
-                    height="40px"
-                    textAlign="center"
-                    lineHeight="32px"
-                    fontSize="body-s"
-                    fontWeight="bold"
-                  >
-                    {item.name.split(' ').map(n => n[0]).join('')}
-                  </Box>
-                  <div>
-                    <Box variant="h3">{item.name}</Box>
-                    <Box variant="small" color="text-body-secondary">
-                      {item.service}
+                <div>
+                  <div style={{ position: 'relative' }}>
+                    <img 
+                      src={item.imageUrl} 
+                      alt={item.service}
+                      style={{ width: '100%', height: '180px', objectFit: 'cover', borderRadius: '8px 8px 0 0' }}
+                    />
+                    <div style={{ 
+                      position: 'absolute', 
+                      top: '10px', 
+                      right: '10px',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      gap: '5px'
+                    }}>
+                      {item.verified && <Badge color="green">Verified</Badge>}
+                      {item.topRated && <Badge color="red">Top Rated</Badge>}
+                    </div>
+                  </div>
+                  <SpaceBetween direction="horizontal" size="s" alignItems="center" padding="s">
+                    <Box
+                      padding="s"
+                      backgroundColor="background-container-header"
+                      borderRadius="circle"
+                      width="40px"
+                      height="40px"
+                      textAlign="center"
+                      lineHeight="32px"
+                      fontSize="body-s"
+                      fontWeight="bold"
+                    >
+                      {item.name.split(' ').map(n => n[0]).join('')}
                     </Box>
-                  </div>
-                  <div style={{ marginLeft: 'auto' }}>
-                    {item.verified && <Badge color="green">Verified</Badge>}
-                    {item.topRated && <Badge color="red">Top Rated</Badge>}
-                  </div>
-                </SpaceBetween>
+                    <div>
+                      <Box variant="h3">{item.name}</Box>
+                      <Box variant="small" color="text-body-secondary">
+                        {item.service}
+                      </Box>
+                    </div>
+                  </SpaceBetween>
+                </div>
               ),
               sections: [
                 {

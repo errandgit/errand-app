@@ -48,28 +48,17 @@ app.use((err, req, res, next) => {
   });
 });
 
-// Database connection
-const connectDB = async () => {
-  try {
-    // For local development without MongoDB, use in-memory MongoDB
-    console.log('Setting up in-memory MongoDB for development');
-    
-    // Instead of connecting to MongoDB, just log a message
-    // In a production app, we would connect to a real MongoDB instance
-    console.log('MongoDB mock connection established');
-    return;
-  } catch (error) {
-    console.error('MongoDB connection error:', error.message);
-    process.exit(1);
-  }
-};
+// Import database connection
+const connectDB = require('./config/db');
 
 // Start server
 const PORT = process.env.PORT || 5000;
 
 const startServer = async () => {
   try {
+    console.log('Connecting to database...');
     await connectDB();
+    console.log('Database connection completed');
     app.listen(PORT, '0.0.0.0', () => {
       console.log(`Server running on 0.0.0.0:${PORT}`);
     });
