@@ -1,0 +1,489 @@
+/* AWS Console Inspired Theme */
+
+/* Global Application Styles */
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #fafafa;
+  font-family: "Amazon Ember", "Helvetica Neue", Roboto, Arial, sans-serif;
+}
+
+/* AWS Console Header Styling */
+.aws-console-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: #232f3e;
+  border-bottom: 1px solid #3c4043;
+}
+
+.aws-console-header .awsui-top-navigation {
+  background: #232f3e;
+  border-bottom: none;
+}
+
+.aws-console-header .awsui-top-navigation-identity {
+  color: #ffffff;
+}
+
+.aws-console-header .awsui-top-navigation-utility {
+  color: #ffffff;
+}
+
+/* Navigation Styling */
+.awsui-app-layout-navigation {
+  background: #ffffff;
+  border-right: 1px solid #e9ecef;
+  box-shadow: 0 1px 4px rgba(0, 28, 36, 0.15);
+}
+
+.awsui-side-navigation-header {
+  background: #f2f3f3;
+  border-bottom: 1px solid #e9ecef;
+  font-weight: 700;
+  color: #0f1419;
+}
+
+.awsui-side-navigation-item {
+  color: #0f1419;
+}
+
+.awsui-side-navigation-item:hover {
+  background: #f2f3f3;
+}
+
+.awsui-side-navigation-item-active {
+  background: #e7f3ff;
+  border-left: 3px solid #0073bb;
+  color: #0073bb;
+  font-weight: 600;
+}
+
+/* Container Styling */
+.awsui-container {
+  background: #ffffff;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0, 28, 36, 0.15);
+  margin-bottom: 16px;
+}
+
+.awsui-container-header {
+  background: #f2f3f3;
+  border-bottom: 1px solid #e9ecef;
+  padding: 16px 20px;
+  border-radius: 8px 8px 0 0;
+}
+
+.awsui-container-header .awsui-header-variant-h2 {
+  color: #0f1419;
+  font-weight: 700;
+  font-size: 18px;
+  margin: 0;
+}
+
+/* Card Styling */
+.awsui-cards-card {
+  background: #ffffff;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0, 28, 36, 0.15);
+  transition: all 0.15s ease;
+  margin-bottom: 16px;
+}
+
+.awsui-cards-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 28, 36, 0.15);
+  transform: translateY(-1px);
+  border-color: #879596;
+}
+
+.awsui-cards-card-header {
+  background: #f9f9f9;
+  border-bottom: 1px solid #e9ecef;
+  padding: 12px 16px;
+  border-radius: 8px 8px 0 0;
+}
+
+/* Button Styling */
+.awsui-button {
+  font-family: "Amazon Ember", "Helvetica Neue", Roboto, Arial, sans-serif;
+  font-weight: 400;
+  border-radius: 4px;
+  transition: all 0.15s ease;
+}
+
+.awsui-button-variant-primary {
+  background: #0073bb;
+  border: 1px solid #0073bb;
+  color: #ffffff;
+}
+
+.awsui-button-variant-primary:hover {
+  background: #005a9b;
+  border-color: #005a9b;
+}
+
+.awsui-button-variant-primary:focus {
+  box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px #0073bb;
+}
+
+.awsui-button-variant-normal {
+  background: #ffffff;
+  border: 1px solid #879596;
+  color: #0f1419;
+}
+
+.awsui-button-variant-normal:hover {
+  background: #f2f3f3;
+  border-color: #687078;
+}
+
+/* Input Styling */
+.awsui-input {
+  border: 1px solid #879596;
+  border-radius: 4px;
+  background: #ffffff;
+  color: #0f1419;
+  font-family: "Amazon Ember", "Helvetica Neue", Roboto, Arial, sans-serif;
+  transition: all 0.15s ease;
+}
+
+.awsui-input:focus {
+  border-color: #0073bb;
+  box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px #0073bb;
+  outline: none;
+}
+
+/* Badge Styling */
+.awsui-badge {
+  font-weight: 700;
+  text-transform: none;
+  font-size: 12px;
+  border-radius: 12px;
+  padding: 2px 8px;
+}
+
+.awsui-badge-color-red {
+  background: #d13212;
+  color: #ffffff;
+}
+
+.awsui-badge-color-green {
+  background: #037f0c;
+  color: #ffffff;
+}
+
+.awsui-badge-color-blue {
+  background: #0073bb;
+  color: #ffffff;
+}
+
+.awsui-badge-color-grey {
+  background: #687078;
+  color: #ffffff;
+}
+
+/* Status Indicator Styling */
+.awsui-status-indicator-type-success {
+  color: #037f0c;
+  font-weight: 600;
+}
+
+.awsui-status-indicator-type-error {
+  color: #d13212;
+  font-weight: 600;
+}
+
+.awsui-status-indicator-type-warning {
+  color: #ff9900;
+  font-weight: 600;
+}
+
+.awsui-status-indicator-type-info {
+  color: #0073bb;
+  font-weight: 600;
+}
+
+/* Header Styling */
+.awsui-header-variant-h1 {
+  color: #0f1419;
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 36px;
+  margin: 0 0 4px 0;
+}
+
+.awsui-header-variant-h2 {
+  color: #0f1419;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 28px;
+  margin: 0 0 4px 0;
+}
+
+.awsui-header-variant-h3 {
+  color: #0f1419;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  margin: 0 0 4px 0;
+}
+
+/* Content Layout */
+.awsui-content-layout {
+  background: #fafafa;
+  min-height: calc(100vh - 120px);
+}
+
+.awsui-content-layout-header {
+  background: #ffffff;
+  border-bottom: 1px solid #e9ecef;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+/* Breadcrumb Styling */
+.awsui-breadcrumb-group {
+  background: transparent;
+  padding: 0;
+  margin-bottom: 16px;
+}
+
+.awsui-breadcrumb-group-item {
+  color: #0073bb;
+  text-decoration: none;
+}
+
+.awsui-breadcrumb-group-item:hover {
+  text-decoration: underline;
+}
+
+/* Table Styling */
+.awsui-table {
+  background: #ffffff;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.awsui-table-header {
+  background: #f2f3f3;
+  border-bottom: 1px solid #e9ecef;
+  font-weight: 700;
+  color: #0f1419;
+}
+
+.awsui-table-row:hover {
+  background: #f9f9f9;
+}
+
+.awsui-table-row:nth-child(even) {
+  background: #fafafa;
+}
+
+.awsui-table-row:nth-child(even):hover {
+  background: #f2f3f3;
+}
+
+/* Alert Styling */
+.awsui-alert {
+  border-radius: 8px;
+  border-left: 4px solid;
+  background: #ffffff;
+  box-shadow: 0 1px 4px rgba(0, 28, 36, 0.15);
+}
+
+.awsui-alert-type-error {
+  border-left-color: #d13212;
+  background: #fdf2f2;
+}
+
+.awsui-alert-type-success {
+  border-left-color: #037f0c;
+  background: #f0f8f0;
+}
+
+.awsui-alert-type-info {
+  border-left-color: #0073bb;
+  background: #f0f7ff;
+}
+
+.awsui-alert-type-warning {
+  border-left-color: #ff9900;
+  background: #fffbf0;
+}
+
+/* Pagination Styling */
+.awsui-pagination {
+  background: #ffffff;
+  border: 1px solid #e9ecef;
+  border-radius: 4px;
+  padding: 8px;
+}
+
+/* Tabs Styling */
+.awsui-tabs-tab {
+  color: #0f1419;
+  font-weight: 400;
+  border-bottom: 2px solid transparent;
+  transition: all 0.15s ease;
+}
+
+.awsui-tabs-tab:hover {
+  color: #0073bb;
+}
+
+.awsui-tabs-tab-active {
+  color: #0073bb;
+  font-weight: 600;
+  border-bottom-color: #0073bb;
+}
+
+.awsui-tabs-content {
+  background: #ffffff;
+  border: 1px solid #e9ecef;
+  border-top: none;
+  border-radius: 0 0 8px 8px;
+  padding: 20px;
+}
+
+/* Key-Value Pairs */
+.awsui-key-value-pairs-key {
+  color: #687078;
+  font-weight: 600;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.awsui-key-value-pairs-value {
+  color: #0f1419;
+  font-weight: 400;
+}
+
+/* Spinner */
+.awsui-spinner {
+  color: #0073bb;
+}
+
+/* Column Layout */
+.awsui-column-layout {
+  gap: 16px;
+}
+
+/* Box variants */
+.awsui-box-variant-h1 {
+  color: #0f1419;
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 36px;
+}
+
+.awsui-box-variant-h2 {
+  color: #0f1419;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 28px;
+}
+
+.awsui-box-variant-h3 {
+  color: #0f1419;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.awsui-box-variant-p {
+  color: #0f1419;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.awsui-box-variant-small {
+  color: #687078;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.awsui-box-variant-strong {
+  font-weight: 700;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .awsui-container {
+    margin: 8px;
+    border-radius: 4px;
+  }
+  
+  .awsui-cards-card {
+    margin-bottom: 12px;
+  }
+  
+  .awsui-column-layout {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+
+/* Focus Management */
+.awsui-button:focus,
+.awsui-input:focus,
+.awsui-select:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px #0073bb;
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  .awsui-cards-card {
+    border: 2px solid #0f1419;
+  }
+  
+  .awsui-button {
+    border: 2px solid currentColor;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .awsui-cards-card,
+  .awsui-button,
+  .awsui-input,
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+  
+  .awsui-cards-card:hover {
+    transform: none;
+  }
+}
+
+/* Notification Banner */
+.awsui-app-layout-notifications {
+  background: #0073bb;
+  color: #ffffff;
+  padding: 8px 16px;
+  font-size: 14px;
+  text-align: center;
+}
+
+/* Custom AWS Console Colors */
+:root {
+  --aws-color-primary: #0073bb;
+  --aws-color-primary-hover: #005a9b;
+  --aws-color-success: #037f0c;
+  --aws-color-error: #d13212;
+  --aws-color-warning: #ff9900;
+  --aws-color-info: #0073bb;
+  --aws-color-text-primary: #0f1419;
+  --aws-color-text-secondary: #687078;
+  --aws-color-background-primary: #ffffff;
+  --aws-color-background-secondary: #fafafa;
+  --aws-color-background-tertiary: #f2f3f3;
+  --aws-color-border-primary: #e9ecef;
+  --aws-color-border-secondary: #879596;
+}

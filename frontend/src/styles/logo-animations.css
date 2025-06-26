@@ -1,0 +1,90 @@
+/* Logo Animation Styles */
+
+.home-logo {
+  margin-bottom: 20px;
+}
+
+/* Background shapes animations */
+.logo-shape-primary {
+  animation: pulse 3s infinite alternate ease-in-out;
+  transform-origin: center;
+}
+
+.logo-shape-secondary {
+  animation: float 3s infinite alternate ease-in-out;
+  transform-origin: center;
+}
+
+/* Icon animations */
+.logo-handle {
+  animation: stretch 4s infinite alternate ease-in-out;
+  transform-origin: center bottom;
+}
+
+.logo-bag {
+  animation: swing 6s infinite alternate ease-in-out;
+  transform-origin: center top;
+}
+
+/* Accent line animation */
+.logo-accent-line {
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  animation: draw 2s forwards 0.5s ease;
+}
+
+/* Animation keyframes */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-2px);
+  }
+}
+
+@keyframes stretch {
+  0% {
+    transform: scaleY(1);
+  }
+  100% {
+    transform: scaleY(1.1);
+  }
+}
+
+@keyframes swing {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(1deg);
+  }
+  75% {
+    transform: rotate(-1deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Hero logo container */
+.hero-logo {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
