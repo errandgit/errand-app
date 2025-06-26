@@ -77,6 +77,26 @@ exports.createBooking = async (req, res, next) => {
 // @access  Private
 exports.getBookingById = async (req, res, next) => {
   try {
+    // Use mock data if mongoose isn't connected
+    if (global.mockDatabase) {
+      const booking = mockBookings.find(booking => booking._id === req.params.id);
+      
+      if (!booking) {
+        return res.status(404).json({
+          success: false,
+          error: 'Booking not found'
+        });
+      }
+      
+      // Note: In mock mode we skip the authorization check for simplicity
+      
+      return res.json({
+        success: true,
+        data: booking
+      });
+    }
+    
+    // If mongoose is connected, use the original code
     const booking = await Booking.findById(req.params.id)
       .populate('service', 'title category pricing')
       .populate('client', 'firstName lastName email phone')
@@ -110,6 +130,92 @@ exports.getBookingById = async (req, res, next) => {
   }
 };
 
+// Mock bookings data
+const mockBookings = [
+  {
+    _id: '201',
+    service: {
+      _id: '101',
+      title: 'Professional Home Cleaning',
+      category: 'cleaning',
+      pricing: {
+        type: 'fixed',
+        amount: 120,
+        currency: 'USD'
+      }
+    },
+    client: {
+      _id: '1',
+      firstName: 'Demo',
+      lastName: 'User',
+      email: 'demo@example.com',
+      phone: '123-456-7890',
+      profileImage: 'https://via.placeholder.com/150'
+    },
+    provider: {
+      _id: '2',
+      firstName: 'Sarah',
+      lastName: 'Johnson',
+      email: 'sarah@example.com',
+      phone: '234-567-8901',
+      profileImage: 'https://via.placeholder.com/150'
+    },
+    status: 'completed',
+    scheduledDate: new Date('2025-05-15'),
+    scheduledTime: {
+      startTime: '10:00',
+      endTime: '13:00'
+    },
+    price: {
+      amount: 75,
+      currency: 'USD'
+    },
+    createdAt: new Date('2025-05-10'),
+    updatedAt: new Date('2025-05-15')
+  },
+  {
+    _id: '202',
+    service: {
+      _id: '102',
+      title: 'Furniture Assembly',
+      category: 'home_improvement',
+      pricing: {
+        type: 'fixed',
+        amount: 60,
+        currency: 'USD'
+      }
+    },
+    client: {
+      _id: '1',
+      firstName: 'Demo',
+      lastName: 'User',
+      email: 'demo@example.com',
+      phone: '123-456-7890',
+      profileImage: 'https://via.placeholder.com/150'
+    },
+    provider: {
+      _id: '3',
+      firstName: 'Mike',
+      lastName: 'Chen',
+      email: 'mike@example.com',
+      phone: '345-678-9012',
+      profileImage: 'https://via.placeholder.com/150'
+    },
+    status: 'scheduled',
+    scheduledDate: new Date('2025-06-30'),
+    scheduledTime: {
+      startTime: '14:00',
+      endTime: '16:00'
+    },
+    price: {
+      amount: 60,
+      currency: 'USD'
+    },
+    createdAt: new Date('2025-06-25'),
+    updatedAt: new Date('2025-06-25')
+  }
+];
+
 // @desc    Get client bookings
 // @route   GET /api/bookings/client/bookings
 // @access  Private/Client
@@ -117,6 +223,32 @@ exports.getClientBookings = async (req, res, next) => {
   try {
     const { status, limit = 10, page = 1 } = req.query;
 
+    // Use mock data if mongoose isn't connected
+    if (global.mockDatabase) {
+      // Filter mock bookings based on status if provided
+      let filteredBookings = [...mockBookings];
+      if (status) {
+        filteredBookings = filteredBookings.filter(booking => booking.status === status);
+      }
+
+      // Apply pagination
+      const startIndex = (parseInt(page) - 1) * parseInt(limit);
+      const endIndex = startIndex + parseInt(limit);
+      const paginatedBookings = filteredBookings.slice(startIndex, endIndex);
+
+      return res.json({
+        success: true,
+        count: paginatedBookings.length,
+        pagination: {
+          total: filteredBookings.length,
+          page: parseInt(page),
+          pages: Math.ceil(filteredBookings.length / parseInt(limit))
+        },
+        data: paginatedBookings
+      });
+    }
+
+    // If mongoose is connected, use the original code
     // Build query
     const query = { client: req.user.id };
     if (status) query.status = status;

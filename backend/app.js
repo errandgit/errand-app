@@ -21,6 +21,18 @@ const userRoutes = require('./routes/users');
 const serviceRoutes = require('./routes/services');
 const bookingRoutes = require('./routes/bookings');
 const reviewRoutes = require('./routes/reviews');
+const transactionRoutes = require('./routes/transactions');
+const locationRoutes = require('./routes/location');
+
+// Test route to check if API is working
+app.get('/api/test', (req, res) => {
+  res.json({
+    message: 'API is working',
+    success: true,
+    timestamp: new Date(),
+    mockDatabase: !!global.mockDatabase
+  });
+});
 
 // API routes
 app.use('/api/auth', authRoutes);
@@ -28,6 +40,8 @@ app.use('/api/users', userRoutes);
 app.use('/api/services', serviceRoutes);
 app.use('/api/bookings', bookingRoutes);
 app.use('/api/reviews', reviewRoutes);
+app.use('/api/transactions', transactionRoutes);
+app.use('/api/location', locationRoutes);
 
 // Serve static frontend in production
 if (process.env.NODE_ENV === 'production') {

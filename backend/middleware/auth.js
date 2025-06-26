@@ -29,6 +29,21 @@ const mockUsers = [
 // Middleware to protect routes
 exports.protect = async (req, res, next) => {
   try {
+    // In development mode with mock database, bypass authentication
+    // and set user as demo client for ease of testing
+    if (process.env.NODE_ENV !== 'production' && global.mockDatabase) {
+      console.log('Development mode: Bypassing authentication');
+      req.user = {
+        id: '1',
+        firstName: 'Demo',
+        lastName: 'User',
+        email: 'demo@example.com',
+        role: 'client',
+        isVerified: true
+      };
+      return next();
+    }
+    
     let token;
 
     // Get token from header
