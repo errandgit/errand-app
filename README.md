@@ -1,14 +1,14 @@
-# Errand App 🏃‍♂️
+# Errand 🏃‍♂️
 
 **Connecting Communities Through Trusted Local Services**
 
-Errand App is a comprehensive service marketplace platform that bridges the gap between busy individuals who need tasks completed and skilled service providers ready to help. Built with modern web technologies and featuring an intuitive Apple-inspired design, our platform makes it effortless to find, book, and manage local services.
+Errand is a comprehensive service marketplace platform that bridges the gap between busy individuals who need tasks completed and skilled service providers ready to help. Built with modern web technologies and featuring an intuitive Apple-inspired design, our platform makes it effortless to find, book, and manage local services.
 
 ## 🎯 Our Mission
 
-In today's fast-paced world, time is our most valuable resource. Errand App empowers people to reclaim their time by connecting them with trusted local professionals who can handle everything from home repairs and cleaning to personal shopping and pet care. We believe everyone deserves access to reliable help when they need it most.
+In today's fast-paced world, time is our most valuable resource. Errand empowers people to reclaim their time by connecting them with trusted local professionals who can handle everything from home repairs and cleaning to personal shopping and pet care. We believe everyone deserves access to reliable help when they need it most.
 
-## 🌟 Why Errand App?
+## 🌟 Why Errand?
 
 ### For Service Seekers:
 - **Save Time**: Focus on what matters most while professionals handle your tasks
